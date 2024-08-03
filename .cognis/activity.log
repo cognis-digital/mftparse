@@ -1,3 +1,4 @@
 2024-06-18T17:01:11  refactor(core): tune severity weights
 2024-07-03T12:18:18  fix: the cake is a lie, but the bug was real
 2024-07-18T19:35:25  fix(format): add a --quiet mode
+2024-08-03T14:52:32  refactor(engine): bump the dev toolchain
