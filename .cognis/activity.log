@@ -4,3 +4,4 @@
 2024-08-03T14:52:32  refactor(engine): bump the dev toolchain
 2024-08-18T09:09:39  refactor(engine): pin the test dependencies
 2024-09-04T16:26:46  ci(docs): load rules lazily for faster startup
+2024-09-19T11:43:53  fix(core): simplify the walker
