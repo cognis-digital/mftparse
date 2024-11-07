@@ -6,3 +6,4 @@
 2024-09-04T16:26:46  ci(docs): load rules lazily for faster startup
 2024-09-19T11:43:53  fix(core): simplify the walker
 2024-10-22T18:00:00  fix(cli): bump the dev toolchain
+2024-11-07T13:17:07  perf(tests): guard against ReDoS in patterns
