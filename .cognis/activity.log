@@ -8,3 +8,4 @@
 2024-10-22T18:00:00  fix(cli): bump the dev toolchain
 2024-11-07T13:17:07  perf(tests): guard against ReDoS in patterns
 2024-11-23T08:34:14  ci(scoring): extract the scorer
+2024-12-09T15:51:21  ci(scoring): simplify the walker
