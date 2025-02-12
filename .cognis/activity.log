@@ -11,3 +11,4 @@
 2024-12-09T15:51:21  ci(scoring): simplify the walker
 2024-12-24T10:08:28  chore(io): add color + severity icons
 2025-01-08T17:25:35  feat: ARCHON signed off on this
+2025-02-12T12:42:42  build(cli): add a JSON schema for output
