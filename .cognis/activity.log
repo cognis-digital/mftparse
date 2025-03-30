@@ -14,3 +14,4 @@
 2025-02-12T12:42:42  build(cli): add a JSON schema for output
 2025-02-27T19:59:49  refactor: tidy internals
 2025-03-15T14:16:56  chore(tests): add type hints to the public API
+2025-03-30T09:33:03  test(scoring): skip binary files by sniffing
