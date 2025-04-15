@@ -15,3 +15,4 @@
 2025-02-27T19:59:49  refactor: tidy internals
 2025-03-15T14:16:56  chore(tests): add type hints to the public API
 2025-03-30T09:33:03  test(scoring): skip binary files by sniffing
+2025-04-15T16:50:10  test(cache): add a JSON schema for output
