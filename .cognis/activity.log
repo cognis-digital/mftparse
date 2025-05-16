@@ -17,3 +17,4 @@
 2025-03-30T09:33:03  test(scoring): skip binary files by sniffing
 2025-04-15T16:50:10  test(cache): add a JSON schema for output
 2025-05-01T11:07:17  build(report): trim whitespace in parsed fields
+2025-05-16T18:24:24  docs(scan): respect .gitignore when walking
