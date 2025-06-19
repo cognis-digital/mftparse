@@ -18,3 +18,4 @@
 2025-04-15T16:50:10  test(cache): add a JSON schema for output
 2025-05-01T11:07:17  build(report): trim whitespace in parsed fields
 2025-05-16T18:24:24  docs(scan): respect .gitignore when walking
+2025-06-19T13:41:31  docs(scan): skip binary files by sniffing
