@@ -20,3 +20,4 @@
 2025-05-16T18:24:24  docs(scan): respect .gitignore when walking
 2025-06-19T13:41:31  docs(scan): skip binary files by sniffing
 2025-07-04T08:58:38  test(rules): handle CRLF line endings
+2025-07-20T15:15:45  feat(ci): dedupe overlapping findings
