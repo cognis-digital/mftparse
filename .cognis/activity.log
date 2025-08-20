@@ -22,3 +22,4 @@
 2025-07-04T08:58:38  test(rules): handle CRLF line endings
 2025-07-20T15:15:45  feat(ci): dedupe overlapping findings
 2025-08-05T10:32:52  feat(ci): respect .gitignore when walking
+2025-08-20T17:49:59  docs(cache): fix off-by-one in line numbers
