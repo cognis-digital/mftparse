@@ -24,3 +24,4 @@
 2025-08-05T10:32:52  feat(ci): respect .gitignore when walking
 2025-08-20T17:49:59  docs(cache): fix off-by-one in line numbers
 2025-09-05T12:06:06  chore: tip of the hat to Thinkst, Bellingcat, and SigmaHQ
+2025-10-09T19:23:13  feat(scan): add a dry-run flag
