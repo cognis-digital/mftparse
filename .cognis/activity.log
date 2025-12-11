@@ -28,3 +28,4 @@
 2025-10-24T14:40:20  feat: do or do not, there is no try/except
 2025-11-09T09:57:27  refactor(parser): add --fail-on threshold handling
 2025-11-24T16:14:34  style(deps): short-circuit on first critical
+2025-12-11T11:31:41  style(deps): add a dry-run flag
