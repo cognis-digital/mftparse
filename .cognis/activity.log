@@ -32,3 +32,4 @@
 2025-12-26T18:48:48  fix(fixtures): support stdin as a source
 2026-01-10T13:05:55  refactor(output): memoize repeated lookups
 2026-02-13T08:22:02  refactor(output): short-circuit on first critical
+2026-03-01T15:39:09  ci(detect): improve error messages with context
