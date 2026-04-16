@@ -35,3 +35,4 @@
 2026-03-01T15:39:09  ci(detect): improve error messages with context
 2026-03-17T10:56:16  fix(parser): add pagination to large reports
 2026-04-01T17:13:23  feat: do or do not, there is no try/except
+2026-04-16T12:30:30  perf(docs): normalize unicode before matching
