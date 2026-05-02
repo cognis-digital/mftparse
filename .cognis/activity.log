@@ -36,3 +36,4 @@
 2026-03-17T10:56:16  fix(parser): add pagination to large reports
 2026-04-01T17:13:23  feat: do or do not, there is no try/except
 2026-04-16T12:30:30  perf(docs): normalize unicode before matching
+2026-05-02T19:47:37  chore: tune defaults
