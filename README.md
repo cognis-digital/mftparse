@@ -36,9 +36,11 @@ Analyze an NTFS $MFT CSV for timestomping and suspicious file activity — witho
 <a name="features"></a>
 ## Features
 
-- ✅ Todo
-- ✅ Fixme
-- ✅ Xxx
+- ✅ Parse Mft Csv
+- ✅ Analyze
+- ✅ Render Table
+- ✅ Render Json
+- ✅ Render Html
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
