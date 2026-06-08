@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/mftparse",
+  "version": "0.2.0",
+  "description": "JavaScript port of mftparse (Cognis Neural Suite)",
+  "bin": {
+    "mftparse": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
