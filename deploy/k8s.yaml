@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: mftparse, labels: { app: mftparse } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: mftparse } }
+  template:
+    metadata: { labels: { app: mftparse } }
+    spec:
+      containers:
+        - name: mftparse
+          image: ghcr.io/cognis-digital/mftparse:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: mftparse }
+spec:
+  selector: { app: mftparse }
+  ports: [{ port: 80, targetPort: 8000 }]
