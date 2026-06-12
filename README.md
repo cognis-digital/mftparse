@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-mftparse
+pip install "git+https://github.com/cognis-digital/mftparse.git"
 mftparse scan .            # → prioritized findings in seconds
 ```
 
@@ -50,7 +50,7 @@ Analyze an NTFS $MFT CSV for timestomping and suspicious file activity — witho
 ## Quick start
 
 ```bash
-pip install cognis-mftparse
+pip install "git+https://github.com/cognis-digital/mftparse.git"
 mftparse --version
 mftparse scan .                       # scan current project
 mftparse scan . --format json         # machine-readable
