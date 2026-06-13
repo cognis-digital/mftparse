@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/mftparse.git"
 mftparse scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+mftparse reads a snapshot of your Windows file system's master table (the $MFT) and looks for signs that someone tampered with file timestamps — a common attacker trick to hide malicious files among older, trusted ones. It also flags executable files hiding in unusual locations (like the Recycle Bin or temp folders) and files with misleading double extensions designed to look like innocent documents. Security analysts and incident responders use it to quickly triage a disk image or live system export and spot the files most worth investigating.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why mftparse?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -47,6 +53,42 @@ Analyze an NTFS $MFT CSV for timestomping and suspicious file activity — witho
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`mftparse` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/mftparse/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/mftparse/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/mftparse.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/mftparse.git"  # uv
+pip install "git+https://github.com/cognis-digital/mftparse.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/mftparse.git
+cd mftparse && pip install .
+```
+
+Then run:
+```sh
+mftparse --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
