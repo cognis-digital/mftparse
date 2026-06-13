@@ -20,6 +20,33 @@ pip install cognis-mftparse
 mftparse scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+`mftparse` analyzes an NTFS `$MFT` CSV export for timestomping and suspicious
+file activity (defensive forensics). Console script: `mftparse`.
+
+1. **Install** from a clone:
+   ```bash
+   pip install -e .
+   ```
+2. **Analyze an `$MFT` CSV** (use `-` to read from stdin):
+   ```bash
+   mftparse analyze mft_export.csv
+   ```
+3. **Write a shareable HTML report**:
+   ```bash
+   mftparse analyze mft_export.csv --format html -o mft_report.html
+   ```
+4. **Read the output** — `--format json` is pipeline-friendly; exit code is `1` when
+   findings exist, `0` when clean:
+   ```bash
+   mftparse analyze mft_export.csv --format json | jq '.findings'
+   ```
+5. **Automate in CI / triage pipelines** — gate on detected timestomping:
+   ```bash
+   cat collected_mft.csv | mftparse analyze - --format json > findings.json
+   ```
+
 ## Contents
 
 - [Why mftparse?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
