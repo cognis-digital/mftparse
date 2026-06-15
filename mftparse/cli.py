@@ -62,8 +62,16 @@ def main(argv=None) -> int:
         except OSError as exc:
             print(f"{TOOL_NAME}: error reading input: {exc}", file=sys.stderr)
             return 2
-        records = parse_mft_csv(text)
-        result = analyze(records)
+        try:
+            records = parse_mft_csv(text)
+        except Exception as exc:
+            print(f"{TOOL_NAME}: failed to parse CSV: {exc}", file=sys.stderr)
+            return 2
+        try:
+            result = analyze(records)
+        except Exception as exc:
+            print(f"{TOOL_NAME}: analysis error: {exc}", file=sys.stderr)
+            return 2
 
         if args.format == "json":
             report = render_json(result)

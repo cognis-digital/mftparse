@@ -193,9 +193,20 @@ class AnalysisResult:
 
 
 def parse_mft_csv(text: str) -> list:
-    """Parse an $MFT CSV export into MftRecord objects."""
-    reader = csv.reader(io.StringIO(text))
-    rows = list(reader)
+    """Parse an $MFT CSV export into MftRecord objects.
+
+    Returns an empty list for an empty or whitespace-only input.
+    Raises ``ValueError`` if the text cannot be parsed as CSV.
+    """
+    if not isinstance(text, str):
+        raise TypeError(f"parse_mft_csv expects a str, got {type(text).__name__!r}")
+    if not text.strip():
+        return []
+    try:
+        reader = csv.reader(io.StringIO(text))
+        rows = list(reader)
+    except csv.Error as exc:
+        raise ValueError(f"CSV parse error: {exc}") from exc
     if not rows:
         return []
     header = rows[0]
@@ -231,7 +242,9 @@ def parse_mft_csv(text: str) -> list:
             parent_path=cell("parent_path").strip(),
             extension=cell("extension").strip(),
             size=size,
-            in_use=_truthy(cell("in_use")) if colmap.get("in_use") is not None else True,
+            in_use=(
+                _truthy(cell("in_use")) if colmap.get("in_use") is not None else True
+            ),
             is_directory=_truthy(cell("is_directory")),
             si_created=_parse_ts(cell("si_created")),
             si_modified=_parse_ts(cell("si_modified")),
@@ -369,7 +382,10 @@ def _check_masquerade(rec: MftRecord) -> list:
             severity="critical",
             entry=rec.entry,
             path=rec.full_path,
-            detail="Filename contains a right-to-left override (U+202E) used to spoof its extension.",
+            detail=(
+                "Filename contains a right-to-left override (U+202E) "
+                "used to spoof its extension."
+            ),
             evidence={"name": name.replace("‮", "<RTLO>")},
         ))
     return findings
@@ -383,9 +399,13 @@ def analyze(records: Iterable) -> AnalysisResult:
         for fn in (_check_timestomp, _check_location, _check_masquerade):
             for finding in fn(rec):
                 result.findings.append(finding)
-                result.counts[finding.severity] = result.counts.get(finding.severity, 0) + 1
+                sev = finding.severity
+                result.counts[sev] = result.counts.get(sev, 0) + 1
     result.findings.sort(
-        key=lambda f: (-SEVERITY_ORDER.get(f.severity, 0), f.entry if f.entry is not None else 1 << 30)
+        key=lambda f: (
+            -SEVERITY_ORDER.get(f.severity, 0),
+            f.entry if f.entry is not None else 1 << 30,
+        )
     )
     return result
 
@@ -397,7 +417,11 @@ _SEV_LABELS = ["critical", "high", "medium", "low", "info"]
 
 
 def _summary_line(result: AnalysisResult) -> str:
-    parts = [f"{s}={result.counts.get(s, 0)}" for s in _SEV_LABELS if result.counts.get(s)]
+    parts = [
+        f"{s}={result.counts.get(s, 0)}"
+        for s in _SEV_LABELS
+        if result.counts.get(s)
+    ]
     sev = ", ".join(parts) if parts else "none"
     return (f"Records: {result.analyzed_records}/{result.total_records}  "
             f"Findings: {len(result.findings)}  ({sev})")
@@ -508,7 +532,9 @@ def render_html(result: AnalysisResult) -> str:
 </style></head><body>
 <header>
   <h1>MFTPARSE — $MFT Forensic Analysis</h1>
-  <div class="meta">Generated {esc(generated)} &middot; {result.analyzed_records}/{result.total_records} records analyzed &middot; {len(result.findings)} findings</div>
+  <div class="meta">Generated {esc(generated)} &middot;
+    {result.analyzed_records}/{result.total_records} records analyzed
+    &middot; {len(result.findings)} findings</div>
 </header>
 <div class="wrap">
   <div class="cards">{''.join(sev_cards)}</div>
