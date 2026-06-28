@@ -1,0 +1,14 @@
+$ mftparse-emit --help
+
+usage: mftparse [-h] [--version] {analyze} ...
+
+Analyze an NTFS $MFT CSV export for timestomping and suspicious file activity
+(defensive forensics).
+
+positional arguments:
+  {analyze}
+    analyze   Analyze an $MFT CSV and report findings.
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit

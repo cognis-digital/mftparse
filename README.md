@@ -20,6 +20,53 @@ pip install cognis-mftparse
 mftparse scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ mftparse-emit --version
+mftparse 0.1.0
+```
+
+```console
+$ mftparse-emit --help
+usage: mftparse [-h] [--version] {analyze} ...
+
+Analyze an NTFS $MFT CSV export for timestomping and suspicious file activity
+(defensive forensics).
+
+positional arguments:
+  {analyze}
+    analyze   Analyze an $MFT CSV and report findings.
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+```
+
+> Blocks above are real `mftparse` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"Findings": [
+    {
+        "id": "1234567890",
+        "title": "Suspicious Network Activity",
+        "description": "An unknown device connected to our network.",
+        "created_by": "John Doe",
+        "created_at": "2023-02-15T14:30:00Z"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 `mftparse` analyzes an NTFS `$MFT` CSV export for timestomping and suspicious

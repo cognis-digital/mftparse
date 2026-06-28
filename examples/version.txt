@@ -1,0 +1,3 @@
+$ mftparse-emit --version
+
+mftparse 0.1.0
